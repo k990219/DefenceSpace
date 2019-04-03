@@ -63,6 +63,7 @@ public class UIController : MonoBehaviour {
 
     public void WinMsgOff()
     {
+
         CenterHUD.SetActive(false);
         gameWinMsg.gameObject.SetActive(false);
         gameWinScreen.gameObject.SetActive(true);
@@ -70,6 +71,9 @@ public class UIController : MonoBehaviour {
 
     public void WinScreenOKButton()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         CenterHUD.SetActive(false);
         userName = nameInput.label.text;
         GameManager.gameManager.InputUserData(userName, GameManager.gameManager.gameScore);

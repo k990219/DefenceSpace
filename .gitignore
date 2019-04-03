@@ -35,4 +35,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+<<<<<<< HEAD
 DefenceSpaceVR.zip
+=======
+DefenceSpace.exe
+DefenceSpace_Data/
+>>>>>>> f9b3926729d65959bd259ec4174f791402653da5

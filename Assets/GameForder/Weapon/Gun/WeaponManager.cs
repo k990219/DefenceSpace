@@ -40,7 +40,7 @@ public class WeaponManager : MonoBehaviour {
 
     void Start () {
 
-        SwapWeapon(3);
+        SwapWeapon(0);
 
     }
 

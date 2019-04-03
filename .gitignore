@@ -35,3 +35,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+DefenceSpace.exe
+DefenceSpace_Data/

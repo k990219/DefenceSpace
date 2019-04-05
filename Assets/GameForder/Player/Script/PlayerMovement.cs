@@ -153,6 +153,8 @@ public class PlayerMovement : MonoBehaviour {
 
         else if (state == State.Air)
         {
+            if (!(transform.position.y > GameManager.gameManager.maxMoveY))
+                return;
             if (Input.GetButton("Jump"))
             {
                 moveSpeed = airSpeed;

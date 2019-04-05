@@ -78,6 +78,7 @@ public class UIController : MonoBehaviour {
         gameWinScreen.gameObject.SetActive(false);
         gameRankScreen.gameObject.SetActive(true);
 
+        JsonManager.RankingSave();
     }
 
 
@@ -85,13 +86,13 @@ public class UIController : MonoBehaviour {
     public void RankTextSet()
     {
         rankName.text = "Name\n";
-        foreach(var obj in GameManager.gameManager.rank)
+        foreach(var obj in GameManager.playerRanking)
         {
             rankName.text += obj.name + '\n';
 
         }
         rankScore.text = "Score\n";
-        foreach (var obj in GameManager.gameManager.rank)
+        foreach (var obj in GameManager.playerRanking)
         {
             rankScore.text += obj.score.ToString("") + '\n';
 

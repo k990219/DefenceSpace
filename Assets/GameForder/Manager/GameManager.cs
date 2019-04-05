@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
     public float gameStartTime;
     public float gameTimer;// = 180.0f;
 
-    public List<RankData> rank = new List<RankData>();
+    public static List<RankData> playerRanking = new List<RankData>();
 
     public List<GameObject> deadRespwan = new List<GameObject>();
     GameObject []spwanTile;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
     List<GameObject> initSpwan = new List<GameObject>();
     UIController uiControll;
 
-    float minMoveY = -4, maxMoveY = 10;
+    public float minMoveY = -4, maxMoveY = 10;
     Vector3 playerStartPosition = new Vector3(7.0f, 0.0f, 18.0f);
 
 
@@ -68,7 +68,18 @@ public class GameManager : MonoBehaviour {
 
     private void Initialized()
     {
-        gameStartTime = 30.0f ;
+        playerRanking.Add(new RankData("A", 10));
+        playerRanking.Add(new RankData("B", 20));
+        playerRanking.Add(new RankData("C", 30));
+
+        JsonManager.RankingLoad();
+
+        foreach (RankData obj in playerRanking)
+        {
+            Debug.Log(obj.name + ": " + obj.score);
+        }
+
+        gameStartTime = 3.0f ;
         gameTimer = gameStartTime;
         gameScore = 0;
         Time.timeScale = 1;
@@ -166,30 +177,31 @@ public class GameManager : MonoBehaviour {
     public void InputUserData(string name,int score)
     {     
         RankData data = new RankData(name, score);
-        rank.Add(data);
-        rank.Sort(delegate (RankData d1, RankData d2) { return d1.score.CompareTo(d2.score); });
-        rank.Reverse();
+        playerRanking.Add(data);
+        playerRanking.Sort(delegate (RankData d1, RankData d2) { return d1.score.CompareTo(d2.score); });
+        playerRanking.Reverse();
 
-        if (rank.Count >= 6)
+        if (playerRanking.Count >= 6)
         {
-            while (rank.Count > 5)
+            while (playerRanking.Count > 5)
             {
-                rank.RemoveAt(rank.Count - 1);
+                playerRanking.RemoveAt(playerRanking.Count - 1);
             }
 
         }
+
     }
 
     void PlayerYCheck()
     {
-        if (!(PlayerMovement.playerMovement.transform.position.y > maxMoveY) && !(PlayerMovement.playerMovement.transform.position.y < minMoveY))
+        if (!(PlayerMovement.playerMovement.transform.position.y < minMoveY))
             return;
         PlayerMovement.playerMovement.transform.position = playerStartPosition;
     }
 
     public void RemoveRank()
     {
-        rank.Clear();
+        playerRanking.Clear();
     }
 
 }

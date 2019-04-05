@@ -193,7 +193,7 @@ public class Monster : MonoBehaviour
 
             targetDir.Normalize();
         
-            GetComponent<CharacterController>().Move(targetDir * monsterSpeed * Time.deltaTime);
+            GetComponent<CharacterController>().Move(targetDir * monsterSpeed * Time.deltaTime*Time.deltaTime);
         }
         transform.rotation = Quaternion.Slerp(transform.rotation,
             Quaternion.LookRotation(targetDir), turnSpeed * Time.deltaTime);

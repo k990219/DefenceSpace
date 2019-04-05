@@ -5,7 +5,7 @@ public class Clocker : MeleeMonster{
     {
         monsterName = "Clocker";
         monsterHP = 15f;
-        monsterSpeed = 0.3f;
+        monsterSpeed = 5.5f;
         monsterRun = 5f;
         monsterDamage = 15f;
         idleAttack = 3.5f;

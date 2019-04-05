@@ -26,6 +26,7 @@ public class HellfireEffect : MonoBehaviour {
     {
         while (isDamage)
         {
+            Debug.Log("Hit");
             obj.GetDamage(damage);
 
             yield return new WaitForSeconds(fireRate);

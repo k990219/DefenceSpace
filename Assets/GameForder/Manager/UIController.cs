@@ -46,8 +46,8 @@ public class UIController : MonoBehaviour {
         gameRankScreen = popUpWindows.transform.Find("GameRankScreen").GetComponent<UISprite>();
         gameQuitScreen = popUpWindows.transform.Find("GameQuitScreen").GetComponent<UISprite>();
 
-        rankName = gameRankScreen.transform.Find("RankValue/RankName").GetComponent<UILabel>();
-        rankScore = gameRankScreen.transform.Find("RankValue/RankScore").GetComponent<UILabel>();
+        rankName = gameRankScreen.transform.Find("RankValue/NameValue").GetComponent<UILabel>();
+        rankScore = gameRankScreen.transform.Find("RankValue/ScoreValue").GetComponent<UILabel>();
 
         CenterHUD = GameObject.Find("UI Root/HUDWindows").transform.Find("Center").gameObject;
     }
@@ -85,14 +85,13 @@ public class UIController : MonoBehaviour {
 
     public void RankTextSet()
     {
-        rankName.text = "Name\n";
-        foreach(var obj in GameManager.playerRanking)
+        foreach(var obj in GameManager.gameManager.playerRanking)
         {
             rankName.text += obj.name + '\n';
 
         }
-        rankScore.text = "Score\n";
-        foreach (var obj in GameManager.playerRanking)
+
+        foreach (var obj in GameManager.gameManager.playerRanking)
         {
             rankScore.text += obj.score.ToString("") + '\n';
 

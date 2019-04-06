@@ -19,11 +19,20 @@ public class JsonManager : MonoBehaviour
         }
     }
 
-    static string dirPath = "/GameForder/PlugIn/RankingData.josn";
+    static string dirPath = "/Resources/RankingData.josn";
+
+    public void RankingReset()
+    {
+        GameManager.gameManager.playerRanking.Clear();
+
+        JsonData RankingJson = JsonMapper.ToJson(GameManager.gameManager.playerRanking);
+
+        File.WriteAllText(Application.dataPath + dirPath, RankingJson.ToString());
+    }
 
     public static void RankingSave()
     {
-        JsonData RankingJson = JsonMapper.ToJson(GameManager.playerRanking);
+        JsonData RankingJson = JsonMapper.ToJson(GameManager.gameManager.playerRanking);
 
         File.WriteAllText(Application.dataPath + dirPath, RankingJson.ToString());
     }
@@ -33,18 +42,9 @@ public class JsonManager : MonoBehaviour
     {
         if (!File.Exists(Application.dataPath + dirPath))
         {
-            Debug.Log("NotFile");
-            JsonData RankingJson = JsonMapper.ToJson(GameManager.playerRanking);
+            JsonData RankingJson = JsonMapper.ToJson(GameManager.gameManager.playerRanking);
 
             File.WriteAllText(Application.dataPath + dirPath, RankingJson.ToString());
-
-            foreach (RankData obj in GameManager.playerRanking)
-            {
-                obj.name = RankingJson["name"].ToString();
-                Debug.Log(obj.name);
-                obj.score = int.Parse(RankingJson["score"].ToString());
-                Debug.Log(obj.score);
-            }
 
         }
 
@@ -52,14 +52,13 @@ public class JsonManager : MonoBehaviour
         {
             string JsonString = File.ReadAllText(Application.dataPath + dirPath);
 
-            Debug.Log(JsonString);
             JsonData rankingData = JsonMapper.ToObject(JsonString);
 
             for( int i = 0; i < rankingData.Count; i++)
             {
                 string name = rankingData[i]["name"].ToString();
                 int score = int.Parse(rankingData[i]["score"].ToString());
-                GameManager.playerRanking.Add(new RankData(name, score));
+                GameManager.gameManager.playerRanking.Add(new RankData(name, score));
                 Debug.Log(name + ": " + score);
             }
 

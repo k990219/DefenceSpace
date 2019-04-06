@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
     public float gameStartTime;
     public float gameTimer;// = 180.0f;
 
-    public static List<RankData> playerRanking = new List<RankData>();
+    public List<RankData> playerRanking = new List<RankData>();
 
     public List<GameObject> deadRespwan = new List<GameObject>();
     GameObject []spwanTile;
@@ -67,19 +67,13 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Initialized()
-    {
-        playerRanking.Add(new RankData("A", 10));
-        playerRanking.Add(new RankData("B", 20));
-        playerRanking.Add(new RankData("C", 30));
-
-        JsonManager.RankingLoad();
-
+    { 
         foreach (RankData obj in playerRanking)
         {
             Debug.Log(obj.name + ": " + obj.score);
         }
 
-        gameStartTime = 3.0f ;
+        gameStartTime = 18.0f ;
         gameTimer = gameStartTime;
         gameScore = 0;
         Time.timeScale = 1;
@@ -157,6 +151,7 @@ public class GameManager : MonoBehaviour {
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        JsonManager.RankingLoad();
 
         Time.timeScale = 0;
         gameTimer = 0f;

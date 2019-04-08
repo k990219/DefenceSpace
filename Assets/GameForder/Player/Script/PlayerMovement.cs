@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour {
     float mouseSpeed = 150f;
     float sprintSpeed = 5f;
     float defaultSpeed = 3f;
-    float airSpeed = 2f;
+    float airSpeed = 1.5f;
 
     Vector3 jumpVelocity;
     Vector3 JumpDirection;
@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour {
         }
 
     }
+    public bool isGrounded;
+    
     public int doubleTab = 0;
     float tabDelay = 0.5f;
     public float tabTime;
@@ -77,7 +79,6 @@ public class PlayerMovement : MonoBehaviour {
 
         InputMovement();
         Jumping();
-
 
     }
 
@@ -153,8 +154,9 @@ public class PlayerMovement : MonoBehaviour {
 
         else if (state == State.Air)
         {
-            if (!(transform.position.y > GameManager.gameManager.maxMoveY))
+            if (transform.position.y > GameManager.gameManager.maxMoveY)
                 return;
+
             if (Input.GetButton("Jump"))
             {
                 moveSpeed = airSpeed;

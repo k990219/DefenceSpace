@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
     List<GameObject> initSpwan = new List<GameObject>();
     UIController uiControll;
 
-    public float minMoveY = -4, maxMoveY = 10;
+    public float minMoveY = -4, maxMoveY = 7;
     Vector3 playerStartPosition = new Vector3(7.0f, 0.0f, 18.0f);
 
 

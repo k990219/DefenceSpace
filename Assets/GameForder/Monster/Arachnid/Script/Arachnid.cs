@@ -16,7 +16,7 @@ public class Arachnid : MeleeMonster
     protected override void MonsterSet()
     {
         monsterName = "Arachnid";
-        monsterHP = 12f;
+        monsterHP = 120f;
         monsterSpeed = 4.8f;
         monsterDamage = 20f;
         idleAttack = 3.5f;

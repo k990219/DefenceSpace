@@ -5,7 +5,7 @@ public class Juggernaut : MeleeMonster{
     protected override void MonsterSet()
     {
         monsterName = "Juggernaut";
-        monsterHP = 25f;
+        monsterHP = 250f;
         monsterDamage = 30f;
         idleAttack = 4.0f;
         moveAttack = 1.0f;

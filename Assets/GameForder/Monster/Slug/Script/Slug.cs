@@ -8,7 +8,7 @@ public class Slug : MeleeMonster
     protected override void MonsterSet()
     {
         monsterName = "Slug";
-        monsterHP = 10f;
+        monsterHP = 100f;
         monsterSpeed = 7.5f;
         monsterRun = 7f;
         monsterDamage = 10f;

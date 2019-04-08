@@ -4,8 +4,8 @@ public class Clocker : MeleeMonster{
     protected override void MonsterSet()
     {
         monsterName = "Clocker";
-        monsterHP = 150f;
-        monsterSpeed = 5.5f;
+        monsterHP = 100f;
+        monsterSpeed = 7.5f;
         monsterRun = 5f;
         monsterDamage = 15f;
         idleAttack = 3.5f;

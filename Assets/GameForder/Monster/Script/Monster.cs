@@ -13,6 +13,7 @@ public class Monster : MonoBehaviour
 
     Animator animator { get { return GetComponent<Animator>(); } }
 
+    protected Vector3 targetDir { get { return targetPosition - thisPosition; } set { targetDir = value; } }
     protected GameObject shipObject { get { return GameShip.shipScript.gameObject; } }
     protected GameObject playerObject { get { return PlayerManager.playerScript.gameObject; } }
     protected GameObject targetSelect
@@ -46,20 +47,13 @@ public class Monster : MonoBehaviour
         }
     }
 
-    protected Vector3 targetDir { get { return targetPosition - thisPosition; } set { targetDir = value; } }
+
 
     protected float monsterAttackRange
     {
         get
         {
-            if (targetSelect.tag == "Player")
-            {
-                return playerAttackRange;
-            }
-            else
-            {
-                return shipAttackRange;
-            }
+            return targetSelect.tag == "Player" ? playerAttackRange : shipAttackRange;
         }
     }
     protected float defaultAttackRange
@@ -84,11 +78,7 @@ public class Monster : MonoBehaviour
     {
         get
         {
-            if (firstAttack)
-                attackDelay = moveAttack;
-            else
-                attackDelay = idleAttack;
-            return attackDelay;
+            return firstAttack ? moveAttack : idleAttack;
         }
     }
     protected float targetDist { get { return Vector3.Distance(targetPosition, thisPosition); } }

@@ -9,11 +9,8 @@ public class PlayerMovement : MonoBehaviour {
     {
         get
         {
-            if (!instance)
-            {
-                instance = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
-            }
-            return instance;
+            return !instance ?
+                instance = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement : instance;
         }
     }
     Weapon weapon;
@@ -30,15 +27,16 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 movement;
     public float moveSpeed;
     float mouseSpeed = 150f;
-    float sprintSpeed = 3f;
-    float defaultSpeed = 1.5f;
-    float airSpeed = 1.0f;
+    float sprintSpeed = 4.5f;
+    float defaultSpeed = 3.5f;
+    float airSpeed = 2.5f;
 
     Vector3 jumpVelocity;
     Vector3 JumpDirection;
     float gravity = -15.0f;
     float jump = 10.0f;
     float doubleJumpPower = 8f;
+    float airPower = 1.5f;
     private bool isGround
     {
         get
@@ -161,7 +159,7 @@ public class PlayerMovement : MonoBehaviour {
                 moveSpeed = airSpeed;
                 PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.airBoost * Time.deltaTime;
                 PlayerManager.playerScript.boostUse = true;
-                jumpVelocity.y = 1.5f;
+                jumpVelocity.y = airPower;
             }
             else
                 PlayerManager.playerScript.boostUse = false;

@@ -84,7 +84,7 @@ public class PlayerManager : MonoBehaviour {
 
         boostChargeTime = 0;
         boostChargeCheck = 0.1f;
-        boostChargeValue = 10.0f;
+        boostChargeValue = 20.0f;
         boostUse = false;
 
         playerHP = playerMaxHP;
@@ -138,7 +138,7 @@ public class PlayerManager : MonoBehaviour {
                 {
                     boostChargeTime = 0;
                     if (boostUse)
-                        playerBoost += boostChargeValue * 0.3f * Time.deltaTime;
+                        playerBoost += boostChargeValue * 0.5f * Time.deltaTime;
                     else
                         playerBoost += boostChargeValue * Time.deltaTime;
                 }
@@ -164,7 +164,7 @@ public class PlayerManager : MonoBehaviour {
         else
         {
             playerHP -= damage;
-            if (playerHP < 0)
+            if (playerHP <= 0)
             {
                 playerHP = 0;
                 GameManager.gameManager.GameOverMsg();

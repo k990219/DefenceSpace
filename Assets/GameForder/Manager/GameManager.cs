@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour {
             Debug.Log(obj.name + ": " + obj.score);
         }
 
-        gameStartTime = 18.0f ;
+        gameStartTime = 120.0f ;
         gameTimer = gameStartTime;
         gameScore = 0;
         Time.timeScale = 1;

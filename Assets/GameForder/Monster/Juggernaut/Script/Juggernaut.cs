@@ -11,9 +11,9 @@ public class Juggernaut : MeleeMonster{
         moveAttack = 1.0f;
         playerAttackRange = 4.5f;
         shipAttackRange = playerAttackRange + 1.8f;
-        traceRange = 18f;
+        traceRange = 12f;
         turnSpeed = 3f;
-        monsterSpeed = 6.0f;
+        monsterSpeed = 2.5f;
         randAttackMax =3;
         rewpawnTime = 30f;
         monsterPoint = 100;

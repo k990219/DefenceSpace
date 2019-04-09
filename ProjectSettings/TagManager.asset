@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Spwan
+  - Monster
+  - Weapon
+  - Ground
+  - explosion
+  - shield
   layers:
   - Default
   - TransparentFX

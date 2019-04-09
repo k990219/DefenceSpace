@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - explosion
   - shield
+  - Ship
   layers:
   - Default
   - TransparentFX

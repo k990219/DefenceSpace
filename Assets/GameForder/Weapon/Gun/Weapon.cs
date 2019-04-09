@@ -27,7 +27,7 @@ public class Weapon: MonoBehaviour {
     public int maxAmmo;
     public int magagine;
     public int ammo;
-    protected bool isReload;
+    public bool isReload;
     private float damage;
     public float weaponDmg { get { return damage; } set { damage = value; } }
 

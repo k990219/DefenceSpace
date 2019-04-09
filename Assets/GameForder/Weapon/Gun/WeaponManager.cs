@@ -39,24 +39,24 @@ public class WeaponManager : MonoBehaviour {
 
 
     void Start () {
-
-        SwapWeapon(0);
+            SwapWeapon(0);
 
     }
 
     // Update is called once per frame
     void Update () {
 
-        if (Input.anyKeyDown)
-        {
-            foreach (var dic in inputKey)
+//        if (handWeapon.isReload)
+            if (Input.anyKeyDown)
             {
-                if (Input.GetKeyDown(dic.Key.ToString()))
+                foreach (var dic in inputKey)
                 {
-                    dic.Value(dic.Key-1);
+                    if (Input.GetKeyDown(dic.Key.ToString()))
+                    {
+                        dic.Value(dic.Key - 1);
+                    }
                 }
             }
-        }
 
     }
 

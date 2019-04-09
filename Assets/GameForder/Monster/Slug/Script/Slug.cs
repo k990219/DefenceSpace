@@ -11,13 +11,13 @@ public class Slug : MeleeMonster
         monsterHP = 50f;
         monsterSpeed = 9.5f;
         monsterRun = 7f;
-        monsterDamage = 10f;
+        monsterDamage = 15f;
         idleAttack = 3.0f;
         moveAttack = 0.5f;
         playerAttackRange = 3f;
         shipAttackRange = playerAttackRange + 1.3f;
         runRange = 7f;
-        traceRange = 10;
+        traceRange = 24;
         turnSpeed = 2.5f;
         randAttackMax = 3;
         monsterPoint = 15;

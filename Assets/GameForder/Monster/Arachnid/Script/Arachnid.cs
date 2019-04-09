@@ -18,12 +18,12 @@ public class Arachnid : MeleeMonster
         monsterName = "Arachnid";
         monsterHP = 60f;
         monsterSpeed = 6.5f;
-        monsterDamage = 20f;
+        monsterDamage = 30f;
         idleAttack = 3.5f;
         moveAttack = 1.0f;
         playerAttackRange = 4f;
         shipAttackRange = playerAttackRange + 1;
-        traceRange = 13f;
+        traceRange = 20f;
         turnSpeed = 2.5f;
         randAttackMax = 1;
         monsterPoint = 25;

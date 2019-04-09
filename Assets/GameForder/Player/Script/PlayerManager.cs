@@ -24,6 +24,9 @@ public class PlayerManager : MonoBehaviour {
     public float playerHP;
     public float playerShield;
     public float playerBoost;
+    public float dJumpBoost = 20.0f;
+    public float airBoost = 15.0f;
+    public float sprintBoost = 10.0f;
 
     bool OnShield;
     bool shieldCharging;
@@ -72,17 +75,16 @@ public class PlayerManager : MonoBehaviour {
 
         playerMaxHP = 150f;
         playerMaxShield = 250f;
-        playerMaxBoost = 200f;
+        playerMaxBoost = 100f;
 
         shieldChargeTime = 0;
         shieldChargeCheck = 0.1f;
         shieldChargeValue = 10.0f;
         shieldChargeDelay = 3.0f;
 
-
         boostChargeTime = 0;
         boostChargeCheck = 0.1f;
-        boostChargeValue = 15.0f;
+        boostChargeValue = 10.0f;
         boostUse = false;
 
         playerHP = playerMaxHP;

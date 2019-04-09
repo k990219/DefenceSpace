@@ -30,9 +30,9 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 movement;
     public float moveSpeed;
     float mouseSpeed = 150f;
-    float sprintSpeed = 5f;
-    float defaultSpeed = 3f;
-    float airSpeed = 1.5f;
+    float sprintSpeed = 3f;
+    float defaultSpeed = 1.5f;
+    float airSpeed = 1.0f;
 
     Vector3 jumpVelocity;
     Vector3 JumpDirection;
@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour {
         }
 
     }
-    public bool isGrounded;
     
     public int doubleTab = 0;
     float tabDelay = 0.5f;
@@ -107,7 +106,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
             ani.SetBool("Sprint", true);
-            PlayerManager.playerScript.playerBoost -= 5.0f * Time.deltaTime;
+            PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.sprintBoost * Time.deltaTime;
             PlayerManager.playerScript.boostUse = true;
             WeaponManager.weaponScript.handWeapon.ChaingeSprint();
             moveSpeed = sprintSpeed;
@@ -160,7 +159,7 @@ public class PlayerMovement : MonoBehaviour {
             if (Input.GetButton("Jump"))
             {
                 moveSpeed = airSpeed;
-                PlayerManager.playerScript.playerBoost -= 15.0f * Time.deltaTime;
+                PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.airBoost * Time.deltaTime;
                 PlayerManager.playerScript.boostUse = true;
                 jumpVelocity.y = 1.5f;
             }
@@ -201,28 +200,28 @@ public class PlayerMovement : MonoBehaviour {
                 state = State.dJump;
 
                 JumpDirection = -transform.right * doubleJumpPower;
-                PlayerManager.playerScript.playerBoost -= 30.0f;
+                PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.dJumpBoost;
             }
             else if (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.D))
             {
                 state = State.dJump;
 
                 JumpDirection = transform.right * doubleJumpPower;
-                PlayerManager.playerScript.playerBoost -= 30.0f;
+                PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.dJumpBoost;
             }
             else if (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.W))
             {
                 state = State.dJump;
 
                 JumpDirection = transform.forward * doubleJumpPower;
-                PlayerManager.playerScript.playerBoost -= 30.0f;
+                PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.dJumpBoost;
             }
             else if (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.S))
             {
                 state = State.dJump;
 
                 JumpDirection = -transform.forward * doubleJumpPower;
-                PlayerManager.playerScript.playerBoost -= 30.0f;
+                PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.dJumpBoost;
             }
             
         }

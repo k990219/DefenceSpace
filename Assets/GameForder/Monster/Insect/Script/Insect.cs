@@ -20,13 +20,13 @@ public class Insect : ShootMonster{
         monsterHP = 40f;
         monsterSpeed = 6.5f;
         monsterRun = 6f;
-        monsterDamage = 15f;
+        monsterDamage = 25f;
         idleAttack = 3.5f;
         moveAttack = 1.5f;
-        playerAttackRange = 12f;
+        playerAttackRange = 16f;
         shipAttackRange = playerAttackRange + 4f;
         runRange = 7f;
-        traceRange = 15f;
+        traceRange = 28f;
         turnSpeed = 2.5f;
         randAttackMax = 1;
         monsterPoint = 35;

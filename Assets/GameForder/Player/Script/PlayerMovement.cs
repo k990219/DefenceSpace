@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 movement;
     public float moveSpeed;
     float mouseSpeed = 150f;
-    float sprintSpeed = 2.5f;
-    float defaultSpeed = 1.5f;
-    float airSpeed = 0.5f;
+    float sprintSpeed = 3.5f;
+    float defaultSpeed = 2.0f;
+    float airSpeed = 1.0f;
 
     Vector3 jumpVelocity;
     Vector3 JumpDirection;
@@ -95,6 +95,9 @@ public class PlayerMovement : MonoBehaviour {
 
     void InputMovement()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 

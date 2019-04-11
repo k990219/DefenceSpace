@@ -64,6 +64,7 @@ public class WeaponManager : MonoBehaviour {
     {
         handWeapon = weapon[select].GetComponent<Weapon>();
 
+
         for (int i = 0; i < weapon.Count; i++)
         {
             if(i== select)

@@ -10,7 +10,7 @@ public class Clocker : MeleeMonster{
         monsterDamage = 25f;
         idleAttack = 3.5f;
         moveAttack = 0.5f;
-        playerAttackRange = 3.5f;
+        playerAttackRange = 3.0f;
         shipAttackRange = playerAttackRange + 0.8f;
         runRange = 7f;
         traceRange = 18f;

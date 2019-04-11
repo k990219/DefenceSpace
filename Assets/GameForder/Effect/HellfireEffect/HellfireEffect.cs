@@ -28,7 +28,7 @@ public class HellfireEffect : MonoBehaviour {
         {
             Debug.Log("Hit");
             obj.GetDamage(damage);
-
+            PlayerHud.playerHudScript.AttackHit();
             yield return new WaitForSeconds(fireRate);
         }
     }

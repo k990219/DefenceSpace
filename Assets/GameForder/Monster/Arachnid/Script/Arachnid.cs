@@ -21,7 +21,7 @@ public class Arachnid : MeleeMonster
         monsterDamage = 30f;
         idleAttack = 3.5f;
         moveAttack = 1.0f;
-        playerAttackRange = 8f;
+        playerAttackRange = 6f;
         shipAttackRange = playerAttackRange + 1;
         traceRange = 20f;
         turnSpeed = 2.5f;

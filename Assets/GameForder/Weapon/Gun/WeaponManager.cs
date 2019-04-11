@@ -53,7 +53,7 @@ public class WeaponManager : MonoBehaviour {
                 {
                     if (Input.GetKeyDown(dic.Key.ToString()))
                     {
-                        dic.Value(dic.Key - 1);
+                        SwapWeapon(dic.Key - 1);
                     }
                 }
             }

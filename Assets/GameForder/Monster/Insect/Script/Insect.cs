@@ -18,7 +18,7 @@ public class Insect : ShootMonster{
         monsterName = "Insect";
         bulletName = "InsectBullet";
         monsterHP = 40f;
-        monsterSpeed = 3.5f;
+        monsterSpeed = 2.5f;
         monsterRun = 6f;
         monsterDamage = 15f;
         idleAttack = 3.5f;

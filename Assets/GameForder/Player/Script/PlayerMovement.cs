@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 movement;
     public float moveSpeed;
     float mouseSpeed = 150f;
-    float sprintSpeed = 4.5f;
-    float defaultSpeed = 3.5f;
-    float airSpeed = 2.5f;
+    float sprintSpeed = 2.5f;
+    float defaultSpeed = 1.5f;
+    float airSpeed = 0.5f;
 
     Vector3 jumpVelocity;
     Vector3 JumpDirection;
@@ -151,14 +151,13 @@ public class PlayerMovement : MonoBehaviour {
 
         else if (state == State.Air)
         {
-            if (transform.position.y > GameManager.gameManager.maxMoveY)
-                return;
-
             if (Input.GetButton("Jump"))
             {
                 moveSpeed = airSpeed;
                 PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.airBoost * Time.deltaTime;
                 PlayerManager.playerScript.boostUse = true;
+                if (transform.position.y > GameManager.gameManager.maxMoveY)
+                    return;
                 jumpVelocity.y = airPower;
             }
             else

@@ -17,7 +17,7 @@ public class Arachnid : MeleeMonster
     {
         monsterName = "Arachnid";
         monsterHP = 60f;
-        monsterSpeed = 3.5f;
+        monsterSpeed = 2.5f;
         monsterDamage = 30f;
         idleAttack = 3.5f;
         moveAttack = 1.0f;

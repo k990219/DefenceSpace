@@ -9,7 +9,7 @@ public class Slug : MeleeMonster
     {
         monsterName = "Slug";
         monsterHP = 50f;
-        monsterSpeed = 4.5f;
+        monsterSpeed = 3.0f;
         monsterRun = 7f;
         monsterDamage = 15f;
         idleAttack = 3.0f;

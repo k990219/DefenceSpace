@@ -130,7 +130,7 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        if (isDead)
+        if (isDead || !GameManager.isPlaying)
             return;
 
         MonsterAttackType();

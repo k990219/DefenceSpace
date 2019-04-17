@@ -46,7 +46,9 @@ public class WeaponManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-//        if (handWeapon.isReload)
+        if (!GameManager.isPlaying || PlayerManager.isDead)
+            return;
+
             if (Input.anyKeyDown)
             {
                 foreach (var dic in inputKey)

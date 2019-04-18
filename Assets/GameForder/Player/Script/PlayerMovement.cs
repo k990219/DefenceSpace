@@ -95,9 +95,6 @@ public class PlayerMovement : MonoBehaviour {
 
     void InputMovement()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
@@ -106,6 +103,8 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
+            if (PlayerManager.playerScript.playerBoost >= PlayerManager.playerScript.sprintBoost)
+                return;
             ani.SetBool("Sprint", true);
             PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.sprintBoost * Time.deltaTime;
             PlayerManager.playerScript.boostUse = true;
@@ -156,6 +155,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (Input.GetButton("Jump"))
             {
+                if (PlayerManager.playerScript.playerBoost >= PlayerManager.playerScript.airBoost)
+                    return;
+
                 moveSpeed = airSpeed;
                 PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.airBoost * Time.deltaTime;
                 PlayerManager.playerScript.boostUse = true;
@@ -175,6 +177,9 @@ public class PlayerMovement : MonoBehaviour {
 
     void DoubleJump()
     {
+        if (PlayerManager.playerScript.playerBoost >= PlayerManager.playerScript.dJumpBoost)
+            return;
+
         if (tabTime > tabDelay || isGround)
         {
             TabReset();

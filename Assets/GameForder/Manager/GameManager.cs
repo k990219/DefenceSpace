@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
     public static string sceneName;
 
-    public bool isPlay = false;
+    public static bool isPlaying = false;
     public bool mouse;
 
     public float gameStartTime;
@@ -73,10 +73,11 @@ public class GameManager : MonoBehaviour {
             Debug.Log(obj.name + ": " + obj.score);
         }
 
-        gameStartTime = 120.0f ;
+        gameStartTime = 10.0f ;
         gameTimer = gameStartTime;
         gameScore = 0;
         Time.timeScale = 1;
+        GameManager.isPlaying = true;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -155,6 +156,7 @@ public class GameManager : MonoBehaviour {
 
         Time.timeScale = 0;
         gameTimer = 0f;
+        GameManager.isPlaying = false;
 
         uiControll.GameWinUIControll(gameScore);
 
@@ -165,6 +167,7 @@ public class GameManager : MonoBehaviour {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
+        GameManager.isPlaying = false;
         Time.timeScale = 0;
         uiControll.GameOverUIControll();
     }

@@ -102,6 +102,7 @@ public class UIController : MonoBehaviour {
     public void QuitScreenCloseButton()
     {
         Time.timeScale = 1;
+        GameManager.isPlaying = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         gameQuitScreen.gameObject.SetActive(false);
@@ -112,6 +113,7 @@ public class UIController : MonoBehaviour {
     public void GoToMainMenu()
     {
         Time.timeScale = 1;
+        GameManager.isPlaying = true;
         GameManager.sceneName = "MainScene";
         SceneManager.LoadScene(1);
     }
@@ -143,13 +145,16 @@ public class UIController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+
             if (!gameQuitScreen.gameObject.activeInHierarchy)
             {
+
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 gameQuitScreen.gameObject.SetActive(true);
 //                helpButton.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                GameManager.isPlaying = false;
                 CenterHUD.SetActive(false);
 
             }
@@ -160,6 +165,7 @@ public class UIController : MonoBehaviour {
                 gameQuitScreen.gameObject.SetActive(false);
 //                helpButton.gameObject.SetActive(false);
                 Time.timeScale = 1;
+                GameManager.isPlaying = true;
                 CenterHUD.SetActive(true);
             }
         }

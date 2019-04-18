@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour {
     float boostChargeDelay;
 
 
-    public static bool isDead = false;
+    public bool isDead = false;
 
     private void Awake()
     {

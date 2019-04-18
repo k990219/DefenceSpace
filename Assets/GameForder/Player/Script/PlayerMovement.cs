@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (PlayerManager.isDead || !GameManager.isPlaying)
+        if (PlayerManager.playerScript.isDead)
             return;
 
         InputMovement();
@@ -81,9 +81,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (!GameManager.isPlaying)
-            return;
-
         Movement();
     }
 
@@ -98,6 +95,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void InputMovement()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
@@ -107,9 +106,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
-            if (PlayerManager.playerScript.playerBoost <= PlayerManager.playerScript.sprintBoost)
-                return;
-
             ani.SetBool("Sprint", true);
             PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.sprintBoost * Time.deltaTime;
             PlayerManager.playerScript.boostUse = true;
@@ -160,9 +156,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (Input.GetButton("Jump"))
             {
-                if (PlayerManager.playerScript.playerBoost <= PlayerManager.playerScript.airBoost)
-                    return;
-
                 moveSpeed = airSpeed;
                 PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.airBoost * Time.deltaTime;
                 PlayerManager.playerScript.boostUse = true;
@@ -170,10 +163,8 @@ public class PlayerMovement : MonoBehaviour {
                     return;
                 jumpVelocity.y = airPower;
             }
-
             else
                 PlayerManager.playerScript.boostUse = false;
-
             DoubleJump();
 
         }
@@ -204,9 +195,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (doubleTab>=2)
         {
-            if (PlayerManager.playerScript.playerBoost <= PlayerManager.playerScript.dJumpBoost)
-                return;
-
             if (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.A))
             {
                 state = State.dJump;

@@ -50,7 +50,7 @@ public class Weapon: MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (PlayerManager.isDead || !GameManager.isPlaying)
+        if (PlayerManager.playerScript.isDead)
             return;
 
         if (Input.GetMouseButton(0) && (mode == ShootMode.idle)

@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour {
 
     public static string sceneName;
 
-    public static bool isPlaying = false;
+    public bool isPlay = false;
+    public bool mouse;
 
     public float gameStartTime;
     public float gameTimer;// = 180.0f;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour {
     UIController uiControll;
 
     public float minMoveY = -4, maxMoveY = 7;
-    Vector3 playerStartPosition;
+    Vector3 playerStartPosition = new Vector3(7.0f, 0.0f, 18.0f);
 
 
     string[] monsterName = {"Slug","Clocker","Insect","Arachnid","Juggernaut"};
@@ -54,16 +55,13 @@ public class GameManager : MonoBehaviour {
 
         Initialized();
 
-        Invoke("DeadMonsterSpwan", 1f);
+        Invoke("DeadMonsterSpwan", 5f);
 
         InvokeRepeating("MonsterSpwan", 10, 3f);
     }
 
     private void Update()
     {
-        if (!isPlaying)
-            return;
-
         Timer();
         PlayerYCheck();
     }
@@ -75,10 +73,10 @@ public class GameManager : MonoBehaviour {
             Debug.Log(obj.name + ": " + obj.score);
         }
 
-        playerStartPosition = PlayerMovement.playerMovement.transform.position;
-        gameStartTime = 10.0f ;
+        gameStartTime = 120.0f ;
         gameTimer = gameStartTime;
         gameScore = 0;
+        Time.timeScale = 1;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -104,16 +102,11 @@ public class GameManager : MonoBehaviour {
             initSpwan[spwanRand].SetActive(true);
             initSpwan.RemoveAt(spwanRand);
         }
-
-
-        isPlaying = true;
+        
     }
 
     void DeadMonsterSpwan()
     {
-        if (!isPlaying)
-            return;
-
         if(!(deadRespwan.Count==0))
         {
             GameObject item = deadRespwan[0];
@@ -135,9 +128,6 @@ public class GameManager : MonoBehaviour {
 
     void MonsterSpwan()
     {
-        if (!isPlaying)
-            return;
-
         rand = Random.Range(0, monsterCategory);
         GameObject monster = ObjectPool.Instance.PopFromPool(monsterName[rand]);
         int spwanRand = Random.Range(0,8);
@@ -159,12 +149,12 @@ public class GameManager : MonoBehaviour {
 
     public void GameSuccess()
     {
-//        Cursor.visible = true;
-//        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         JsonManager.RankingLoad();
 
+        Time.timeScale = 0;
         gameTimer = 0f;
-        isPlaying = false;
 
         uiControll.GameWinUIControll(gameScore);
 
@@ -172,10 +162,10 @@ public class GameManager : MonoBehaviour {
 
     public void GameOverMsg()
     {
-        //        Cursor.visible = true;
-        //        Cursor.lockState = CursorLockMode.None;
-        isPlaying = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
+        Time.timeScale = 0;
         uiControll.GameOverUIControll();
     }
 
@@ -201,7 +191,6 @@ public class GameManager : MonoBehaviour {
     {
         if (!(PlayerMovement.playerMovement.transform.position.y < minMoveY))
             return;
-
         PlayerMovement.playerMovement.transform.position = playerStartPosition;
     }
 

@@ -38,7 +38,7 @@ public class UIController : MonoBehaviour {
         gameWinScreen = popUpWindows.transform.Find("GameWin/GameWinScreen").GetComponent<UISprite>();
         gameWinMsg = popUpWindows.transform.Find("GameWin/GameWinMsg").GetComponent<UISprite>();
 
-        nameInput = gameWinScreen.transform.Find("InputField/Input").GetComponent<UIInput>();
+        nameInput = gameWinScreen.transform.Find("Input").GetComponent<UIInput>();
         scoreNum = gameWinScreen.transform.Find("ScoreNum").GetComponent<UILabel>();
 
         gameOverMsg = popUpWindows.transform.Find("GameOver/GameOverMsg").GetComponent<UISprite>();
@@ -56,8 +56,6 @@ public class UIController : MonoBehaviour {
 
     public void OverMsgOff()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
 
         CenterHUD.SetActive(false);
         gameOverMsg.gameObject.SetActive(false);
@@ -65,9 +63,6 @@ public class UIController : MonoBehaviour {
 
     public void WinMsgOff()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-
         CenterHUD.SetActive(false);
         gameWinMsg.gameObject.SetActive(false);
         gameWinScreen.gameObject.SetActive(true);
@@ -106,7 +101,7 @@ public class UIController : MonoBehaviour {
 
     public void QuitScreenCloseButton()
     {
-        GameManager.isPlaying = true;
+        Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         gameQuitScreen.gameObject.SetActive(false);
@@ -116,6 +111,7 @@ public class UIController : MonoBehaviour {
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1;
         GameManager.sceneName = "MainScene";
         SceneManager.LoadScene(1);
     }
@@ -147,24 +143,23 @@ public class UIController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
-            if (GameManager.isPlaying)
+            if (!gameQuitScreen.gameObject.activeInHierarchy)
             {
-                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 gameQuitScreen.gameObject.SetActive(true);
-                //                helpButton.gameObject.SetActive(true);
-                GameManager.isPlaying = false;
+//                helpButton.gameObject.SetActive(true);
+                Time.timeScale = 0;
                 CenterHUD.SetActive(false);
 
             }
             else
             {
-                Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 gameQuitScreen.gameObject.SetActive(false);
-                //                helpButton.gameObject.SetActive(false);
-                GameManager.isPlaying = true;
+//                helpButton.gameObject.SetActive(false);
+                Time.timeScale = 1;
                 CenterHUD.SetActive(true);
             }
         }

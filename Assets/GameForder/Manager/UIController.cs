@@ -59,6 +59,7 @@ public class UIController : MonoBehaviour {
 
         CenterHUD.SetActive(false);
         gameOverMsg.gameObject.SetActive(false);
+        GoToMainMenu();
     }
 
     public void WinMsgOff()
@@ -145,16 +146,16 @@ public class UIController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
             if (!gameQuitScreen.gameObject.activeInHierarchy)
             {
-
+                if (!GameManager.isPlaying)
+                    return;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 gameQuitScreen.gameObject.SetActive(true);
 //                helpButton.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                GameManager.isPlaying = false;
+                GameManager.isPlaying = !GameManager.isPlaying;
                 CenterHUD.SetActive(false);
 
             }
@@ -165,19 +166,9 @@ public class UIController : MonoBehaviour {
                 gameQuitScreen.gameObject.SetActive(false);
 //                helpButton.gameObject.SetActive(false);
                 Time.timeScale = 1;
-                GameManager.isPlaying = true;
+                GameManager.isPlaying = !GameManager.isPlaying;
                 CenterHUD.SetActive(true);
             }
-        }
-
-        if (gameHelpScreen && Input.anyKey)
-        {
-            gameQuitScreen.gameObject.SetActive(!false);
-            helpGrayScreen.gameObject.SetActive(!true);
-            helpTextToltip.SetActive(!true);
-            CenterHUD.SetActive(!true);
-            gameHelpScreen = false;
-
         }
 
     }

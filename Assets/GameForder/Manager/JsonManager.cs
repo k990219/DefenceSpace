@@ -59,7 +59,6 @@ public class JsonManager : MonoBehaviour
                 string name = rankingData[i]["name"].ToString();
                 int score = int.Parse(rankingData[i]["score"].ToString());
                 GameManager.gameManager.playerRanking.Add(new RankData(name, score));
-                Debug.Log(name + ": " + score);
             }
 
         }

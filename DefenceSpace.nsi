@@ -63,13 +63,13 @@ Section "Start Menu Shortcuts"
 
   CreateDirectory "$SMPROGRAMS\DefenceSpace"
   CreateShortcut "$SMPROGRAMS\DefenceSpace\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
-  CreateShortcut "$SMPROGRAMS\DefenceSpace\DefenceSpace (MakeNSISW).lnk" "$INSTDIR\DefenceSpace.exe" "" "$INSTDIR\DefenceSpace.exe" 0
+  CreateShortcut "$SMPROGRAMS\DefenceSpace\DefenceSpace.lnk" "$INSTDIR\DefenceSpace.exe" "" "$INSTDIR\DefenceSpace.exe" 0
   
 SectionEnd
 
 Section "Desktop Shortcuts"
 
-  CreateShortcut "$DESKTOP\DefenceSpace (MakeNSISW).lnk" "$INSTDIR\DefenceSpace.exe" "" "$INSTDIR\DefenceSpace.exe" 0
+  CreateShortcut "$DESKTOP\DefenceSpace.lnk" "$INSTDIR\DefenceSpace.exe" "" "$INSTDIR\DefenceSpace.exe" 0
   
 SectionEnd
 

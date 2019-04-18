@@ -78,9 +78,9 @@ public class PlayerManager : MonoBehaviour {
         playerMaxBoost = 100f;
 
         shieldChargeTime = 0;
-        shieldChargeCheck = 0.1f;
-        shieldChargeValue = 25.0f;
-        shieldChargeDelay = 3.0f;
+        shieldChargeCheck = 0.01f;
+        shieldChargeValue = 15.0f;
+        shieldChargeDelay = 1.0f;
 
         boostChargeTime = 0;
         boostChargeCheck = 0.1f;

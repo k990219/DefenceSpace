@@ -56,17 +56,16 @@ public class Weapon: MonoBehaviour {
         if (Input.GetMouseButton(0) && (mode == ShootMode.idle)
             && ani.GetCurrentAnimatorStateInfo(0).IsName("Idle_Gun"))
         {
-            if (!isReload)
+            if (isReload)
+                return;
+            if (ammo > 0)
             {
-                if (ammo > 0)
-                {
-                    mode = ShootMode.shoot;
-                    Fire();
-                }
-                else if (magagine > 0)
-                {
-                    Reload();
-                }
+                mode = ShootMode.shoot;
+                Fire();
+            }
+            else if (magagine > 0)
+            {
+                Reload();
             }
         }
         else

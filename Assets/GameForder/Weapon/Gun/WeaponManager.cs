@@ -49,8 +49,9 @@ public class WeaponManager : MonoBehaviour {
 //        if (handWeapon.isReload)
             if (Input.anyKeyDown)
             {
-            if (!GameManager.isPlaying)
+            if (!GameManager.isPlaying||handWeapon.isReload)
                 return;
+
                 foreach (var dic in inputKey)
                 {
                     if (Input.GetKeyDown(dic.Key.ToString()))

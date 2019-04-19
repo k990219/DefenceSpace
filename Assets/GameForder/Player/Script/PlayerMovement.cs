@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
-            if (PlayerManager.playerScript.playerBoost >= PlayerManager.playerScript.sprintBoost)
+            if (PlayerManager.playerScript.playerBoost <= PlayerManager.playerScript.sprintBoost)
                 return;
             ani.SetBool("Sprint", true);
             PlayerManager.playerScript.playerBoost -= PlayerManager.playerScript.sprintBoost * Time.deltaTime;
@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (Input.GetButton("Jump"))
             {
-                if (PlayerManager.playerScript.playerBoost >= PlayerManager.playerScript.airBoost)
+                if (PlayerManager.playerScript.playerBoost <= PlayerManager.playerScript.airBoost)
                     return;
 
                 moveSpeed = airSpeed;
@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void DoubleJump()
     {
-        if (PlayerManager.playerScript.playerBoost >= PlayerManager.playerScript.dJumpBoost)
+        if (PlayerManager.playerScript.playerBoost <= PlayerManager.playerScript.dJumpBoost)
             return;
 
         if (tabTime > tabDelay || isGround)

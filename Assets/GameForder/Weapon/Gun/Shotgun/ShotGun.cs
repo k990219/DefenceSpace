@@ -27,7 +27,7 @@ public class ShotGun : Weapon {
         muzzleFlash.Play();
         audio.PlayOneShot(fireClip);
 
-        float shotgunLange = 7.0f;
+        float shotgunLange = 15.0f;
         float shotgunSpread = 0.15f;
         for (int i = 0; i < shotgunPellet; i++)
         {

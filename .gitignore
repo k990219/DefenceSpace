@@ -24,6 +24,8 @@ ExportedObj/
 *.pdb
 *.opendb
 *.VC.db
+*.exe
+*.zip
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -41,4 +43,5 @@ DefenceSpaceVR.zip
 =======
 DefenceSpace.exe
 DefenceSpace_Data/
+UnityPlayer.dll
 >>>>>>> f9b3926729d65959bd259ec4174f791402653da5

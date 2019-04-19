@@ -55,9 +55,9 @@ public class GameManager : MonoBehaviour {
 
         Initialized();
 
-        Invoke("DeadMonsterSpwan", 5f);
+        Invoke("DeadMonsterSpwan", 1f);
 
-        InvokeRepeating("MonsterSpwan", 10, 3f);
+        InvokeRepeating("MonsterSpwan", 10, 1f);
     }
 
     private void Update()

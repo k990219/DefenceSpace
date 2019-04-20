@@ -46,9 +46,7 @@ public class ShotGun : Weapon {
                
                 if (hit.transform.tag.Equals("Monster"))
                 {
-                    hit.transform.GetComponent<Monster>().GetDamage(weaponDmg);
-                    PlayerHud.playerHudScript.AttackHit();
-
+                    AttackHit(hit.transform.gameObject);
                 }
             }
         }

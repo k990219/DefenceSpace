@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class HellfireEffect : MonoBehaviour {
 
+    HellFire hellFire;
     public float fireRate;
     public float damage;
     public bool isDamage = false;
+
+    private void Start()
+    {
+        hellFire = WeaponManager.weaponScript.GetComponentInChildren<HellFire>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,9 +32,8 @@ public class HellfireEffect : MonoBehaviour {
     {
         while (isDamage)
         {
-            Debug.Log("Hit");
-            obj.GetDamage(damage);
-            PlayerHud.playerHudScript.AttackHit();
+            hellFire.AttackHit(obj.gameObject);
+
             yield return new WaitForSeconds(fireRate);
         }
     }

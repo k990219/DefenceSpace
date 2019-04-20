@@ -28,9 +28,7 @@ public class Rifle : Weapon {
         {
             if (hit.transform.tag.Equals("Monster"))
             {
-                hit.transform.GetComponent<Monster>().GetDamage(weaponDmg);
-                PlayerHud.playerHudScript.AttackHit();
-
+                AttackHit(hit.collider.gameObject);
             }
         }
     }

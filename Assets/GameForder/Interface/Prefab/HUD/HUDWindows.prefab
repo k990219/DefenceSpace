@@ -690,7 +690,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1737239738272776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4349364545987296}
@@ -948,7 +948,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5.75
+  aspectRatio: 7.885714
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 29056518aafb01b49a5b08faf8e30cff, type: 2}
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 6.175
+  aspectRatio: 4.891089
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 29056518aafb01b49a5b08faf8e30cff, type: 2}
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.2051282
+  aspectRatio: 3.125
   mType: 3
   mFillDirection: 3
   mFillAmount: 0.612
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.6666666
+  aspectRatio: 1
   mType: 3
   mFillDirection: 4
   mFillAmount: 0.289
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 36
+  aspectRatio: 12
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 17.18919
+  aspectRatio: 11.828571
   mType: 3
   mFillDirection: 0
   mFillAmount: 1
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.0357143
+  aspectRatio: 1.0428572
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -1620,7 +1620,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.2051282
+  aspectRatio: 3.125
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 36
+  aspectRatio: 12
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -1836,7 +1836,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.2638435
+  aspectRatio: 1.5694444
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -1890,7 +1890,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5.850467
+  aspectRatio: 4.029703
   mType: 3
   mFillDirection: 0
   mFillAmount: 1
@@ -2012,7 +2012,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.6666666
+  aspectRatio: 1
   mType: 3
   mFillDirection: 4
   mFillAmount: 0.33

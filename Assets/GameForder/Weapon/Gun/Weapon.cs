@@ -12,6 +12,7 @@ public class Weapon: MonoBehaviour {
 
     public AudioClip fireClip;
     public AudioClip reloadClip;
+    public AudioClip hitClip;
     protected AudioSource audio;
 
     public enum ShootMode { idle, sprint, reload, shoot }
@@ -126,6 +127,17 @@ public class Weapon: MonoBehaviour {
         mode = ShootMode.idle;
         isReload = false;
 
+    }
+
+    
+
+    public void AttackHit(GameObject target)
+    {
+        Debug.Log(target.name);
+        target.GetComponent<Monster>().GetDamage(weaponDmg);
+        PlayerHud.playerHudScript.AttackHit();
+        if(audio.clip!=hitClip)
+            audio.PlayOneShot(hitClip);
     }
 
     void Reload()

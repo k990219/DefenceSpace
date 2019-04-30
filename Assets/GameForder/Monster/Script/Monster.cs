@@ -203,7 +203,7 @@ public class Monster : MonoBehaviour
             return;
 
         monsterHP -= damage;
-        Debug.Log(transform.name + "HP: " + monsterHP);
+//        Debug.Log(transform.name + "HP: " + monsterHP);
         if (monsterHP <= 0)
             Dead();
     }

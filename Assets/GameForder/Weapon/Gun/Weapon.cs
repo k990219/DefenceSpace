@@ -136,7 +136,7 @@ public class Weapon: MonoBehaviour {
         Debug.Log(target.name);
         target.GetComponent<Monster>().GetDamage(weaponDmg);
         PlayerHud.playerHudScript.AttackHit();
-        if(audio.clip!=hitClip)
+        if(!audio.isPlaying && audio.clip!=hitClip)
             audio.PlayOneShot(hitClip);
     }
 

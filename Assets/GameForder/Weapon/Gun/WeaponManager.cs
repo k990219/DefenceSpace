@@ -44,22 +44,23 @@ public class WeaponManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
-//        if (handWeapon.isReload)
-            if (Input.anyKeyDown)
-            {
-            if (!GameManager.isPlaying||handWeapon.isReload)
+        //        if (handWeapon.isReload)
+        if (Input.anyKeyDown)
+        {
+            if (!GameManager.isPlaying || handWeapon.isReload)
                 return;
 
-                foreach (var dic in inputKey)
+            foreach (var dic in inputKey)
+            {
+                if (Input.GetKeyDown(dic.Key.ToString()))
                 {
-                    if (Input.GetKeyDown(dic.Key.ToString()))
-                    {
-                        SwapWeapon(dic.Key - 1);
-                    }
+                    SwapWeapon(dic.Key - 1);
                 }
             }
+        }
 
     }
 
@@ -74,6 +75,11 @@ public class WeaponManager : MonoBehaviour {
             else
                 weapon[i].SetActive(false);
         }
+    }
+
+    public void AttackHit()
+    {
+
     }
 
 }
